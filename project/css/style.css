@@ -1,0 +1,1207 @@
+/* =========================================================
+   TELAGA MADU PLAYSTATION
+   FINAL CSS
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050505;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 193, 7, 0.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(255, 70, 0, 0.12),
+            transparent 30%
+        ),
+        #050505;
+}
+
+.background::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 7%;
+
+    background: rgba(0, 0, 0, 0.82);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 19px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #ffc107;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+    display: none;
+
+    min-height: 100vh;
+
+    padding:
+        120px
+        7%
+        80px;
+
+    animation:
+        pageIn 0.5s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height:
+        calc(100vh - 70px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.trophy {
+    font-size: 90px;
+
+    animation:
+        floating 3s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 0 30px
+            rgba(255, 193, 7, 0.3)
+        );
+}
+
+.eyebrow {
+    color: #ffc107;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    margin-top: 20px;
+}
+
+.hero h1 {
+    font-size:
+        clamp(
+            55px,
+            10vw,
+            110px
+        );
+
+    line-height: 0.85;
+
+    margin-top: 15px;
+
+    font-weight: 1000;
+
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: #ffc107;
+
+    text-shadow:
+        0 0 40px
+        rgba(255, 193, 7, 0.25);
+}
+
+.description {
+    color: #999999;
+
+    margin-top: 25px;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   MAIN BUTTON
+========================================================= */
+
+.main-btn {
+    margin-top: 35px;
+
+    padding:
+        17px
+        30px;
+
+    border: none;
+
+    background: #ffc107;
+
+    color: #111111;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.main-btn span {
+    margin-left: 15px;
+}
+
+.main-btn:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(255, 193, 7, 0.25);
+}
+
+.main-btn:active {
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-header {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+.section-header h2 {
+    font-size:
+        clamp(
+            32px,
+            6vw,
+            55px
+        );
+
+    margin-top: 10px;
+
+    line-height: 1;
+}
+
+.section-header > p:last-child {
+    color: #888888;
+
+    margin-top: 10px;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SEASON / PLATFORM CARD
+========================================================= */
+
+.season-grid {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.season-card {
+    position: relative;
+
+    padding:
+        45px
+        30px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #090909
+        );
+
+    border:
+        1px solid #292929;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.season-card:hover {
+    transform:
+        translateY(-10px);
+
+    border-color:
+        #ffc107;
+
+    box-shadow:
+        0 20px 60px
+        rgba(255, 193, 7, 0.12);
+}
+
+.console {
+    font-size: 65px;
+
+    margin-bottom: 20px;
+
+    filter:
+        drop-shadow(
+            0 5px 15px
+            rgba(255, 193, 7, 0.15)
+        );
+}
+
+.season-number {
+    color: #ffc107;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    font-weight: bold;
+}
+
+.season-card h3 {
+    font-size: 30px;
+
+    margin:
+        10px
+        0
+        15px;
+}
+
+.card-date {
+    color: #999999;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+.season-card button {
+    margin-top: 25px;
+
+    padding:
+        12px
+        20px;
+
+    background: transparent;
+
+    border:
+        1px solid #ffc107;
+
+    color: #ffc107;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.season-card:hover button {
+    background: #ffc107;
+
+    color: #111111;
+}
+
+
+/* =========================================================
+   COMING SOON
+========================================================= */
+
+.season-card.coming {
+    cursor: default;
+
+    opacity: 0.5;
+}
+
+.season-card.coming:hover {
+    transform: none;
+
+    border-color:
+        #292929;
+
+    box-shadow: none;
+}
+
+.season-card.coming:hover button {
+    background: transparent;
+
+    color: #ffc107;
+}
+
+.coming-text {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding:
+        8px
+        14px;
+
+    background: #222222;
+
+    color: #ffc107;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.season-card.coming p {
+    color: #777777;
+
+    margin-top: 15px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   DATE BADGE
+========================================================= */
+
+.date-badge {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding:
+        10px
+        16px;
+
+    border:
+        1px solid #333333;
+
+    color: #aaaaaa;
+
+    font-size: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+}
+
+
+/* =========================================================
+   ALBUM SECTION
+========================================================= */
+
+.album-section {
+    max-width: 1100px;
+
+    margin:
+        0
+        auto
+        70px;
+}
+
+.album-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+    border-bottom:
+        1px solid #222222;
+
+    padding-bottom: 20px;
+}
+
+.album-title > span {
+    font-size: 35px;
+}
+
+.album-title h2 {
+    font-size: 25px;
+}
+
+.album-title p {
+    color: #777777;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   WINNERS
+========================================================= */
+
+.winner-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.winner-card {
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #090909
+        );
+
+    border:
+        1px solid #292929;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.winner-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        #ffc107;
+}
+
+.winner-card.champion {
+    border-color:
+        rgba(255, 193, 7, 0.6);
+
+    box-shadow:
+        0 0 40px
+        rgba(255, 193, 7, 0.1);
+}
+
+
+/* =========================================================
+   WINNER PHOTO
+========================================================= */
+
+.winner-photo {
+    height: 280px;
+
+    position: relative;
+
+    background: #111111;
+
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.winner-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.winner-card:hover
+.winner-photo img {
+    transform:
+        scale(1.06);
+}
+
+
+/* =========================================================
+   RANK
+========================================================= */
+
+.rank {
+    position: absolute;
+
+    left: 12px;
+    top: 12px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        rgba(0, 0, 0, 0.75);
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+
+    border-radius: 50%;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   WINNER INFO
+========================================================= */
+
+.winner-info {
+    padding: 20px;
+}
+
+.winner-info small {
+    color: #ffc107;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    font-weight: bold;
+}
+
+.winner-info h3 {
+    font-size: 25px;
+
+    margin-top: 7px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   PARTICIPANTS
+========================================================= */
+
+.participants-section {
+    margin-top: 80px;
+}
+
+.gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.participant {
+    position: relative;
+
+    height: 300px;
+
+    overflow: hidden;
+
+    background: #111111;
+
+    border:
+        1px solid #292929;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.participant:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        #ffc107;
+}
+
+.participant img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.participant:hover img {
+    transform:
+        scale(1.08);
+}
+
+
+/* =========================================================
+   PARTICIPANT NAME
+========================================================= */
+
+.participant-name {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding:
+        35px
+        15px
+        15px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0, 0, 0, 0.95)
+        );
+
+    font-weight: bold;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        rgba(0, 0, 0, 0.92);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    z-index: 999;
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+
+    object-fit: contain;
+
+    border:
+        2px solid #333333;
+
+    box-shadow:
+        0 20px 80px #000000;
+}
+
+.close {
+    position: absolute;
+
+    top: 25px;
+    right: 35px;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        rgba(0, 0, 0, 0.5);
+
+    border:
+        1px solid #333333;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    font-size: 35px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.close:hover {
+    color: #ffc107;
+
+    border-color:
+        #ffc107;
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-btn {
+    display: block;
+
+    margin:
+        40px
+        auto
+        0;
+
+    padding:
+        13px
+        22px;
+
+    background: transparent;
+
+    color: #aaaaaa;
+
+    border:
+        1px solid #333333;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #ffc107;
+
+    border-color:
+        #ffc107;
+
+    background:
+        rgba(255, 193, 7, 0.04);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    text-align: center;
+
+    padding:
+        40px
+        20px;
+
+    border-top:
+        1px solid #161616;
+
+    color: #777777;
+
+    font-size: 12px;
+}
+
+footer strong {
+    color: #ffffff;
+
+    letter-spacing: 2px;
+}
+
+footer p {
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-15px);
+    }
+}
+
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    header {
+        justify-content: center;
+    }
+
+
+    .season-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .winner-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .gallery {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .winner-photo {
+        height: 300px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    header {
+        height: 60px;
+
+        padding:
+            0
+            5%;
+    }
+
+
+    .logo {
+        font-size: 14px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .page {
+        padding:
+            100px
+            5%
+            60px;
+    }
+
+
+    .hero {
+        min-height:
+            calc(100vh - 60px);
+    }
+
+
+    .trophy {
+        font-size: 70px;
+    }
+
+
+    .hero h1 {
+        font-size: 55px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .description {
+        font-size: 13px;
+
+        max-width: 280px;
+
+        line-height: 1.6;
+    }
+
+
+    .main-btn {
+        padding:
+            15px
+            24px;
+    }
+
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+
+    .section-header h2 {
+        font-size: 34px;
+    }
+
+
+    .season-card {
+        padding:
+            35px
+            20px;
+    }
+
+
+    .season-card h3 {
+        font-size: 26px;
+    }
+
+
+    .winner-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .gallery {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .winner-photo {
+        height: 350px;
+    }
+
+
+    .participant {
+        height: 380px;
+    }
+
+
+    .album-title {
+        align-items: flex-start;
+    }
+
+
+    .album-title > span {
+        font-size: 28px;
+    }
+
+
+    .album-title h2 {
+        font-size: 20px;
+    }
+
+
+    .lightbox {
+        padding: 15px;
+    }
+
+
+    .lightbox img {
+        max-width: 95%;
+
+        max-height: 80vh;
+    }
+
+
+    .close {
+        top: 15px;
+        right: 15px;
+
+        width: 45px;
+        height: 45px;
+
+        font-size: 30px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .logo {
+        font-size: 12px;
+    }
+
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+
+    .trophy {
+        font-size: 60px;
+    }
+
+
+    .eyebrow {
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .section-header h2 {
+        font-size: 30px;
+    }
+
+
+    .winner-photo {
+        height: 320px;
+    }
+
+
+    .participant {
+        height: 340px;
+    }
+}
